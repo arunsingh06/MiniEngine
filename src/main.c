@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include "engine.h"
 
 int main(void){
 
-    if(SDL_Init(SDL_INIT_VIDEO) < 0){
-        fprintf(stderr, "SDL_Init failed %s\n", SDL_GetError());
-    }   
+    if(!Engine_Init()){
+        return EXIT_FAILURE;
+    }
+    Engine_Run();
 
-
-    SDL_Quit();
+    Engine_Shutdown();
     return EXIT_SUCCESS;
 }
