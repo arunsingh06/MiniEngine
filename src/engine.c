@@ -13,22 +13,20 @@ typedef struct{
 
 static Engine engine;
 
-
-
 bool Engine_Init(void){
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
         fprintf(stderr, "SDL_Init failed: %s\n", SDL_GetError());
         return false;
     }
-    engine.window = NULL;
+
     engine.width = 500;
     engine.height = 500;
-    if((engine.window = SDL_CreateWindow("MiniEngine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, engine.height, engine.width, 0)) == NULL){
+    engine.window = SDL_CreateWindow("MiniEngine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, engine.width, engine.height, 0);
+    if(engine.window == NULL){
         fprintf(stderr, "SDL_CreateWindow failed: %s\n", SDL_GetError());
         SDL_Quit();
         return false;
     }
-
     return true;
 }
 
@@ -39,11 +37,12 @@ void Engine_Run(void){
     SDL_Event event;
 
     while(engine.running){
-        if(event.type == SDL_QUIT){
-            engine.running = false;
+        while(SDL_PollEvent(&event)){
+            if(event.type == SDL_QUIT){
+                engine.running = false;
+            }
         }
     }
-
 }
 
 void Engine_Shutdown(void){
