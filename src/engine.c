@@ -1,19 +1,31 @@
-#include "engine.h"
+#include "../include/engine.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 
-static SDL_Window *window;
+typedef struct{
+    SDL_Window *window;
+    SDL_Renderer *renderer;
+    bool running;
+    int width;
+    int height;
+}Engine;
+
+static Engine engine;
+
+
 
 bool Engine_Init(void){
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
         fprintf(stderr, "SDL_Init failed: %s\n", SDL_GetError());
         return false;
     }
-
-    if((window = SDL_CreateWindow("Window", 0, 0, 500, 500, 0)) == NULL){
+    engine.window = NULL;
+    engine.width = 500;
+    engine.height = 500;
+    if((engine.window = SDL_CreateWindow("MiniEngine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, engine.height, engine.width, 0)) == NULL){
         fprintf(stderr, "SDL_CreateWindow failed: %s\n", SDL_GetError());
-        Engine_Shutdown();
+        SDL_Quit();
         return false;
     }
 
@@ -22,11 +34,21 @@ bool Engine_Init(void){
 
 void Engine_Run(void){
 
+    engine.running = true;
+
+    SDL_Event event;
+
+    while(engine.running){
+        if(event.type == SDL_QUIT){
+            engine.running = false;
+        }
+    }
+
 }
 
 void Engine_Shutdown(void){
-    if(window != NULL){
-        SDL_DestroyWindow(window);
+    if(engine.window != NULL){
+        SDL_DestroyWindow(engine.window);
     }
     SDL_Quit();
 }
