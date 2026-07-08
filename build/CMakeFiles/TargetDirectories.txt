@@ -1,0 +1,3 @@
+/home/arundeep/MiniEngine/build/CMakeFiles/MiniEngine.dir
+/home/arundeep/MiniEngine/build/CMakeFiles/edit_cache.dir
+/home/arundeep/MiniEngine/build/CMakeFiles/rebuild_cache.dir

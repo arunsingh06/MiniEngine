@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/MiniEngine.dir/link.d CMakeFiles/MiniEngine.dir/src/engine.c.o CMakeFiles/MiniEngine.dir/src/main.c.o -o MiniEngine  -lSDL2

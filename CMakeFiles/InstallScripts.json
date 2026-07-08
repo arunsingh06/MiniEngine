@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/arundeep/MiniEngine/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

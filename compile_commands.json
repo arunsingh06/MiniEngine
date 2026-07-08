@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/arundeep/MiniEngine",
+  "command": "/usr/bin/cc  -I/home/arundeep/MiniEngine/include -I/usr/include/SDL2 -std=gnu17 -Wall -Wextra -Wpedantic -o CMakeFiles/MiniEngine.dir/src/engine.c.o -c /home/arundeep/MiniEngine/src/engine.c",
+  "file": "/home/arundeep/MiniEngine/src/engine.c",
+  "output": "CMakeFiles/MiniEngine.dir/src/engine.c.o"
+},
+{
+  "directory": "/home/arundeep/MiniEngine",
+  "command": "/usr/bin/cc  -I/home/arundeep/MiniEngine/include -I/usr/include/SDL2 -std=gnu17 -Wall -Wextra -Wpedantic -o CMakeFiles/MiniEngine.dir/src/main.c.o -c /home/arundeep/MiniEngine/src/main.c",
+  "file": "/home/arundeep/MiniEngine/src/main.c",
+  "output": "CMakeFiles/MiniEngine.dir/src/main.c.o"
+}
+]
